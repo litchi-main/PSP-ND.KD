@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>3d157ff7-ae57-4a18-ab94-c5bf52acc55e</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>PSP_ND.KD.py</StartupFile>
+    <StartupFile>Menu.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,7 +21,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="PSP_ND.KD.py" />
+    <Compile Include="config.py" />
+    <Compile Include="Game.py" />
+    <Compile Include="Menu.py" />
+    <Compile Include="Tile.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
