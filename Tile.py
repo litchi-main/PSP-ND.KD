@@ -8,6 +8,13 @@ class Tile:
     def onPressDo(self):
         pass
 
+    def makeInactive(self, bgColor):
+        self.clickArea.config(command = 0, 
+                              activebackground = bgColor,
+
+                              bg = bgColor,
+                              relief = "groove")
+
     def __init__(self, gameGrid, x, y):
         self.hiddenPixel = PhotoImage(width=1, height=1)
         self.clickArea = Button(gameGrid, 
@@ -15,8 +22,7 @@ class Tile:
                                 height = config.tileX, 
                                 command = self.onPressDo, 
                                 image = self.hiddenPixel,
-                                activebackground = '#000000', 
-                                background= 'white')
+                                bg = config.tileBG)
         self.clickArea.grid(column = x, row = y)
 
 class EmptyTile(Tile):
@@ -24,8 +30,7 @@ class EmptyTile(Tile):
         super().__init__(grid, x, y)
 
     def onPressDo(self):
-        self.clickArea.configure(state = "disabled", relief = "groove")
-        messagebox.showerror("xd", "lmao")
+        self.makeInactive(config.tileBG)
 
 class Mine(Tile):
     def __init__(self, grid, x, y, photo):
@@ -33,4 +38,5 @@ class Mine(Tile):
         self.photo = photo
 
     def onPressDo(self):
-        self.clickArea.configure(relief = "sunken", image = self.photo, command = 0)
+        messagebox.showerror("HA", "YOU LOST")
+        self.makeInactive('red')
