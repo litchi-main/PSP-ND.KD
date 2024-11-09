@@ -4,10 +4,13 @@ menuWindowY = 200
 
 gameWindowX = 300
 gameWindowY = 300
-gridSizeX = 16
-gridSizeY = 16
+gameBG = (255,255,255)
 
-tileX = 30
-tileY = 30
+gridSizeX = 16
+gridSizeY = 8
+
+tileX = 50
+tileY = 50
 tileBG = 'light gray'
-minePhoto = r"resources/Mine.png"
+spriteSheet = "resources/spritesheet.png"
+spriteData = "resources/sprites.json"

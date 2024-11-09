@@ -24,7 +24,11 @@
     <Compile Include="config.py" />
     <Compile Include="Game.py" />
     <Compile Include="Menu.py" />
+    <Compile Include="spritesheet.py" />
     <Compile Include="Tile.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sprites.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

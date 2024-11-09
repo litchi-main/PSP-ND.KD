@@ -1,0 +1,90 @@
+{
+  "hidden": {
+    "x": 0,
+    "y": 0,
+    "width": 50,
+    "height": 50,
+    "Ox": 0,
+    "Oy": 0
+  },
+  "flagged": {
+    "x": 50,
+    "y": 0,
+    "width": 50,
+    "height": 50,
+    "Ox": 0,
+    "Oy": 0
+  },
+  "one": {
+    "x": 100,
+    "y": 0,
+    "width": 50,
+    "height": 50,
+    "Ox": 0,
+    "Oy": 0
+  },
+  "two": {
+    "x": 0,
+    "y": 50,
+    "width": 50,
+    "height": 50,
+    "Ox": 0,
+    "Oy": 0
+  },
+  "three": {
+    "x": 50,
+    "y": 50,
+    "width": 50,
+    "height": 50,
+    "Ox": 0,
+    "Oy": 0
+  },
+  "four": {
+    "x": 100,
+    "y": 50,
+    "width": 50,
+    "height": 50,
+    "Ox": 0,
+    "Oy": 0
+  },
+  "five": {
+    "x": 0,
+    "y": 100,
+    "width": 50,
+    "height": 50,
+    "Ox": 0,
+    "Oy": 0
+  },
+  "six": {
+    "x": 50,
+    "y": 100,
+    "width": 50,
+    "height": 50,
+    "Ox": 0,
+    "Oy": 0
+  },
+  "seven": {
+    "x": 0,
+    "y": 150,
+    "width": 50,
+    "height": 50,
+    "Ox": 0,
+    "Oy": 0
+  },
+  "eight": {
+    "x": 0,
+    "y": 150,
+    "width": 50,
+    "height": 50,
+    "Ox": 0,
+    "Oy": 0
+  },
+  "empty": {
+    "x": 100,
+    "y": 100,
+    "width": 50,
+    "height": 50,
+    "Ox": 0,
+    "Oy": 0
+  }
+}

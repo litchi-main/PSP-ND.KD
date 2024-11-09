@@ -1,11 +1,11 @@
 from tkinter import *
 import config
 import Game
-import Tile
 
 class Menu:
     def play(self):
-        Game.Game(self.window)
+        self.game = Game.Game()
+        self.game.main()
 
     def __init__(self):
         self.window = Tk()

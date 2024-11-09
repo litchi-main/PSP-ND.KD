@@ -1,30 +1,30 @@
 from tkinter import *
+import pygame 
 import config
 import Tile
+import spritesheet
 
 class Game:
-    def closeGame(self):
-        geometry = self.window.winfo_geometry().split("+")
-        self.parent.geometry("0x0+" + geometry[1] + "+" + geometry[2])
-        self.parent.deiconify()
-        self.window.destroy()
+    def __init__(self):
+        pygame.init()
+        self.screen = pygame.display.set_mode((config.gridSizeX * config.tileX,
+                                               config.gridSizeY * config.tileY))
+        self.screen.fill(config.gameBG)
+        pygame.display.set_caption(config.windowName)
+        self.fps = pygame.time.Clock()
+        self.spriteSheet = spritesheet.SpriteSheet()
 
-    def createGameGrid(self):
-        self.gameGrid = Frame(self.window)
-        self.minePhoto = PhotoImage(file = config.minePhoto)
+        
+    def main(self):
+        self.tiles = []
         for x in range(config.gridSizeX):
+            self.tiles.append([])
             for y in range(config.gridSizeY):
-                Tile.Mine(self.gameGrid, x, y, self.minePhoto)
-        self.gameGrid.pack()
-
-    def __init__(self, parentWindow):
-        self.parent = parentWindow
-        self.window = Toplevel(self.parent)
-        #self.window.minsize(config.gridSizeX * config.tileX, config.gridSizeY * config.tileY)
-        self.window.resizable(False,False)
-        self.parent.withdraw()
-        self.window.protocol(name = "WM_DELETE_WINDOW", func = self.closeGame)
-
-        self.createGameGrid()
-
-        self.window.mainloop()
+                self.tiles[x].append(Tile.Tile(x,y,'empty',self.spriteSheet))
+        while True:
+            print("I LIVE")
+            for x in range(config.gridSizeX):
+                for y in range(config.gridSizeY):
+                    self.tiles[x][y].render(self.screen)
+            pygame.display.update()
+            self.fps.tick(60)
