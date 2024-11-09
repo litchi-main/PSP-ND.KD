@@ -7,6 +7,6 @@ gameWindowY = 300
 gridSizeX = 1
 gridSizeY = 1
 
-tileX = 30
-tileY = 30
-minePhoto = 'resources/Mine.png'
+tileX = 300
+tileY = 300
+minePhoto = r"resources/Mine.png"

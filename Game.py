@@ -11,9 +11,10 @@ class Game:
 
     def createGameGrid(self):
         self.gameGrid = Frame(self.window)
+        self.minePhoto = PhotoImage(file = config.minePhoto)
         for x in range(config.gridSizeX):
             for y in range(config.gridSizeY):
-                Tile.Tile(self.gameGrid, x, y)
+                Tile.Mine(self.gameGrid, x, y, self.minePhoto)
         self.gameGrid.pack()
 
     def __init__(self, parentWindow):

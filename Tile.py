@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 import config
 from abc import ABC, abstractmethod
 
@@ -8,8 +9,14 @@ class Tile:
         pass
 
     def __init__(self, gameGrid, x, y):
-        photo = PhotoImage(file = 'resources/Mine.png') #PhotoImage(width = config.tileX, height = config.tileY)
-        self.clickArea = Button(gameGrid, width = config.tileX, height= config.tileY command = self.onPressDo)
+        self.hiddenPixel = PhotoImage(width=1, height=1)
+        self.clickArea = Button(gameGrid, 
+                                width = config.tileX, 
+                                height = config.tileX, 
+                                command = self.onPressDo, 
+                                image = self.hiddenPixel,
+                                activebackground = '#000000', 
+                                background= 'white')
         self.clickArea.grid(column = x, row = y)
 
 class EmptyTile(Tile):
@@ -17,12 +24,13 @@ class EmptyTile(Tile):
         super().__init__(grid, x, y)
 
     def onPressDo(self):
-        self.clickArea.config(state = "disabled", relief = "groove")
+        self.clickArea.configure(state = "disabled", relief = "groove")
+        messagebox.showerror("xd", "lmao")
 
 class Mine(Tile):
-    def __init__(self, grid, x, y):
+    def __init__(self, grid, x, y, photo):
         super().__init__(grid, x, y)
+        self.photo = photo
 
     def onPressDo(self):
-        photo = PhotoImage(file = config.minePhoto)
-        self.clickArea.configure(state = "disabled", relief = "groove", image = photo)
+        self.clickArea.configure(relief = "sunken", image = self.photo, command = 0)
