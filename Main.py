@@ -2,7 +2,7 @@ from tkinter import *
 import config
 import Game
 
-class Menu:
+class Main:
     def play(self):
         self.window.withdraw()
         while True:
@@ -26,4 +26,4 @@ class Menu:
 
         self.window.mainloop()
 
-Menu()
+Main()
