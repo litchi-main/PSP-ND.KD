@@ -24,6 +24,7 @@
     <Compile Include="config.py" />
     <Compile Include="Game.py" />
     <Compile Include="Menu.py" />
+    <Compile Include="ReplayMenu.py" />
     <Compile Include="spritesheet.py" />
     <Compile Include="Tile.py" />
   </ItemGroup>

@@ -4,8 +4,13 @@ import Game
 
 class Menu:
     def play(self):
-        game = Game.Game()
-        game.main()
+        self.window.withdraw()
+        while True:
+            game = Game.Game()
+            replay = game.main(self.window)
+            if replay == False:
+                break
+        self.window.deiconify()
 
     def __init__(self):
         self.window = Tk()

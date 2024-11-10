@@ -6,6 +6,7 @@ import pygame.locals
 import config
 import Tile
 import spritesheet
+import ReplayMenu
 
 class Game:
     def __init__(self):
@@ -158,22 +159,31 @@ class Game:
                 break
             self.fps.tick(60)
 
-    def postGameloop(self):
-        while True:
-            for event in pygame.event.get():
-                if event.type == pygame.locals.QUIT:
-                    pygame.quit()
-                    return
-            pygame.display.update()
-            self.fps.tick(60)
+    def postGameloop(self, mainMenu):
+        self.replayMenu = ReplayMenu.ReplayMenu()
+        self.response = self.replayMenu.main(mainMenu)
 
-    def main(self):
+        while True:
+            if pygame.get_init():
+                for event in pygame.event.get():
+                    if event.type == pygame.locals.QUIT:
+                        return False
+                    pygame.display.update()
+                    self.fps.tick(60)
+
+            if self.response == True:
+                return True
+            else:
+                return False
+
+    def main(self, mainMenu):
         self.generateTiles()
         self.preGameloop()
         if pygame.get_init():
             self.gameloop()
         if pygame.get_init():
-            self.postGameloop()
+            return self.postGameloop(mainMenu)
         if pygame.get_init():
             pygame.quit()
+        return False
 
