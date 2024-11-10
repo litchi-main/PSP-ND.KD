@@ -19,10 +19,10 @@ class Menu:
         self.window.resizable(False, False)
 
         self.playButton = Button(self.window, text = "Play", command = self.play)
-        self.playButton.pack(fill = "x")
+        self.playButton.pack(fill = "both", expand = True)
 
         self.exitButton = Button(self.window, text = "Exit", command = self.window.destroy)
-        self.exitButton.pack(fill = "x")
+        self.exitButton.pack(fill = "both", expand = True)
 
         self.window.mainloop()
 
