@@ -4,8 +4,8 @@ import Game
 
 class Menu:
     def play(self):
-        self.game = Game.Game()
-        self.game.main()
+        game = Game.Game()
+        game.main()
 
     def __init__(self):
         self.window = Tk()
