@@ -8,6 +8,7 @@ gameBG = (255,255,255)
 
 gridSizeX = 16
 gridSizeY = 8
+mineLimit = 32
 
 tileX = 50
 tileY = 50
