@@ -1,6 +1,7 @@
 from tkinter import *
 import config
 import Game
+import os
 
 class Main:
     def play(self):
@@ -13,6 +14,10 @@ class Main:
         self.window.deiconify()
 
     def __init__(self):
+        abspath = os.path.abspath(__file__)
+        dname = os.path.dirname(abspath)
+        os.chdir(dname)
+
         self.window = Tk()
         self.window.title(config.windowName)
         self.window.minsize(config.menuWindowX, config.menuWindowY)
