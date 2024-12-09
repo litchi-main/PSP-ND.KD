@@ -6,24 +6,24 @@ class ReplayMenu:
         pass
 
     def setPositiveResponse(self):
-        self.response = True
-        self.replayWindow.quit()
-        self.replayWindow.destroy()
+        self.__response = True
+        self.__replayWindow.quit()
+        self.__replayWindow.destroy()
 
     def setNegativeResponse(self):
-        self.response = False
-        self.replayWindow.quit()
-        self.replayWindow.destroy()
+        self.__response = False
+        self.__replayWindow.quit()
+        self.__replayWindow.destroy()
 
     def main(self, mainMenu):
         pygame.quit()
-        self.replayWindow = Toplevel(mainMenu)
-        self.replayWindow.wm_attributes('-topmost', 'true')
-        self.replayWindow.protocol("WM_DELETE_WINDOW", self.setNegativeResponse)
-        Label(self.replayWindow, text = "Play again?").pack(fill = 'x')
-        buttonFrame = Frame(self.replayWindow)
+        self.__replayWindow = Toplevel(mainMenu)
+        self.__replayWindow.wm_attributes('-topmost', 'true')
+        self.__replayWindow.protocol("WM_DELETE_WINDOW", self.setNegativeResponse)
+        Label(self.__replayWindow, text = "Play again?").pack(fill = 'x')
+        buttonFrame = Frame(self.__replayWindow)
         Button(buttonFrame, text = "Yes", command = self.setPositiveResponse).pack(fill = 'x')
         Button(buttonFrame, text = "No", command = self.setNegativeResponse).pack(fill = 'x')
         buttonFrame.pack(fill = 'x')
-        self.replayWindow.mainloop()
-        return self.response
+        self.__replayWindow.mainloop()
+        return self.__response

@@ -4,20 +4,20 @@ import config
 
 class SpriteSheet:
     def __init__(self):
-        self.sheet = pygame.image.load(config.spriteSheet).convert()
+        self.__sheet = pygame.image.load(config.spriteSheet).convert()
         data = open(config.spriteData,"r")
-        self.data = json.loads(data.read())
+        self.__data = json.loads(data.read())
         data.close()
         
     def getSprite(self, x, y, width, height, Ox, Oy):
         sprite = pygame.Surface([width,height])
-        sprite.blit(self.sheet, (Ox,Oy), (x,y,width,height))
+        sprite.blit(self.__sheet, (Ox,Oy), (x,y,width,height))
         return sprite
 
     def getSpriteByName(self, name):
-        return self.getSprite(self.data[name]['x'], 
-                              self.data[name]['y'], 
-                              self.data[name]['width'], 
-                              self.data[name]['height'], 
-                              self.data[name]['Ox'],
-                              self.data[name]['Oy'])
+        return self.getSprite(self.__data[name]['x'], 
+                              self.__data[name]['y'], 
+                              self.__data[name]['width'], 
+                              self.__data[name]['height'], 
+                              self.__data[name]['Ox'],
+                              self.__data[name]['Oy'])

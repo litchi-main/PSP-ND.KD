@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>3d157ff7-ae57-4a18-ab94-c5bf52acc55e</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Main.pyw</StartupFile>
+    <StartupFile>UnitTests\TestPlayer.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,15 +21,37 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GridGenerator\BaseCommand.py" />
+    <Compile Include="GridGenerator\GridGenerateCommand.py" />
+    <Compile Include="GridGenerator\GridGenerator.py" />
+    <Compile Include="GridGenerator\Invoker.py" />
+    <Compile Include="MouseClickChecker.py" />
+    <Compile Include="NameGetter.py" />
     <Compile Include="config.py" />
+    <Compile Include="EmptyTile.py" />
     <Compile Include="Game.py" />
     <Compile Include="Main.pyw" />
+    <Compile Include="Mine.py" />
     <Compile Include="ReplayMenu.py" />
     <Compile Include="spritesheet.py" />
-    <Compile Include="Tile.py" />
+    <Compile Include="BaseTile.py" />
+    <Compile Include="tempTile.py" />
+    <Compile Include="TileFactories\BaseCreator.py" />
+    <Compile Include="TileFactories\EmptyTileFactory.py" />
+    <Compile Include="TileFactories\MineFactory.py" />
+    <Compile Include="UnitTests\TestPlayer.py" />
+    <Compile Include="UnitTests\TileGenerationTest.py" />
+    <Compile Include="UnitTests\LossConditionTest.py" />
+    <Compile Include="UnitTests\WinConditionTest.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="sprites.json" />
+    <Content Include="TileFactories\tempTileFactory.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GridGenerator\" />
+    <Folder Include="UnitTests\" />
+    <Folder Include="TileFactories\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

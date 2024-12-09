@@ -1,34 +1,38 @@
 from tkinter import *
+from GridGenerator.GridGenerator import GridGenerator
+from GridGenerator.GridGenerateCommand import GridGenerateCommand
+from GridGenerator.Invoker import Invoker
 import config
 import Game
 import os
 
 class Main:
     def play(self):
-        self.window.withdraw()
-        while True:
-            game = Game.Game()
-            replay = game.main(self.window)
-            if replay == False:
-                break
-        self.window.deiconify()
+        self.__window.withdraw()
+        gridGenerator = GridGenerator()
+        gridGenerateCommand = GridGenerateCommand(gridGenerator)
+        invoker = Invoker()
+        invoker.storeCommand(gridGenerateCommand)
+        game = Game.Game(invoker)
+        game.main(self.__window)
+        self.__window.deiconify()
 
     def __init__(self):
         abspath = os.path.abspath(__file__)
         dname = os.path.dirname(abspath)
         os.chdir(dname)
 
-        self.window = Tk()
-        self.window.title(config.windowName)
-        self.window.minsize(config.menuWindowX, config.menuWindowY)
-        self.window.resizable(False, False)
+        self.__window = Tk()
+        self.__window.title(config.windowName)
+        self.__window.minsize(config.menuWindowX, config.menuWindowY)
+        self.__window.resizable(False, False)
 
-        self.playButton = Button(self.window, text = "Play", command = self.play)
-        self.playButton.pack(fill = "both", expand = True)
+        self.__playButton = Button(self.__window, text = "Play", command = self.play)
+        self.__playButton.pack(fill = "both", expand = True)
 
-        self.exitButton = Button(self.window, text = "Exit", command = self.window.destroy)
-        self.exitButton.pack(fill = "both", expand = True)
+        self.__exitButton = Button(self.__window, text = "Exit", command = self.__window.destroy)
+        self.__exitButton.pack(fill = "both", expand = True)
 
-        self.window.mainloop()
+        self.__window.mainloop()
 
 Main()
